@@ -1,27 +1,116 @@
-#container {
-  text-align: center;
+// * {
+//   box-sizing: border-box;
+//   padding: 0;
+//   margin: 0;
+// }
 
+:root {
+  --base: #1e1e1e;
+  --light: #ffffff;
+  --accent-1: #c9c9c9;
+  --acennt-2: #363636;
+  --dangerous: #f16060;
+}
+
+// body {
+//   font-family: 'Open Sans', sans-serif;
+//   color: var(--light);
+//   position: relative;
+//   height: 100vh;
+//   overflow: hidden;
+// }
+
+.content {
+  background: #f16060 !important;
+  border-radius: 0 0 15px 15px;
+}
+
+.drag-menu {
+  background: #1e1e1e;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 435px;
+  display: flex;
+  -webkit-user-select: none;
+  color: #ffffff;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  bottom: 0%;
+  transform: translate(-50%, 0);
+  padding: 25px 0;
+  transition: background .25s, transform .5s;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.drag-menu.closed {
+  background: transparent;
+  transform: translate(-50%, 80%);
 }
 
-#container p {
+.drag-menu.closed:hover {
+  background: var(--acennt-2);
+}
+
+.drag-menu span {
   font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  padding: 15px 0;
 }
 
-#container a {
-  text-decoration: none;
+.drag-area {
+  cursor: pointer;
+  padding: 20px 0;
+  width: 100%;
+  position: absolute;
+  bottom: 150px;
+}
+
+.drag-line {
+  margin: auto;
+  width: 100px;
+  height: 5px;
+
+  border-radius: 5px;
+  background:  #c9c9c9;
+}
+
+.drag-item-container {
+  margin: 40px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.drag-item {
+  font-size: 20px;
+  padding: 20px;
+  margin-right: 40px;
+  border-radius: 50%;
+
+  transition:  opacity .25s;
+  background: var(--accent-2);
+}
+
+.drag-item.dangerous {
+  background: var(--dangerous);
+}
+
+.drag-item:last-child {
+  margin-right: 0;
+}
+
+.drag-item:hover {
+  cursor:pointer;
+  opacity:.5;
+}
+
+.drag-item-icon {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
